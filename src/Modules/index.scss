@@ -1,0 +1,398 @@
+@import "./colors.scss";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// navbar component
+
+header {
+    display: inline;
+  }
+  
+  .jumbotron {
+    font-size: 20px;
+    padding: 20px;
+    background-color: $sea-white;
+    text-align: center;
+    h1 {
+      margin: 0;
+    }
+  }
+  
+  .logo {
+    position: fixed;    
+    margin: 20px 36px;
+    height: 4vw;            
+    img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+    }
+  }
+  
+  nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: white;
+    ul {
+      list-style: none;
+      background: rgba(0, 0, 0, 0);
+      overflow: hidden;
+      color: #010184;
+      padding: 0;
+      text-align: right;
+      margin: 0;
+      transition: 1s ease-in-out;
+      li {
+          display: inline-block;
+          padding: 30px 20px;
+          a {
+              text-decoration: none;
+              color: #010184;
+              font-size: 1.1em;
+          }
+      } 
+    }
+  }
+  
+  .icon-menu {
+    width: 100%;
+    background: black;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 15px 24px;
+    cursor: pointer;
+    color: #fff;
+    display: none;
+    transition: 1s;
+  }
+  
+  .bg-biru:hover {
+    background-color: #00a3ff;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    nav ul li {
+      padding: 20px 10px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .hero-detail {
+      margin-top: 4em;
+    }
+    .logo {
+      position: fixed;
+      top: 0;
+      margin-top: 16px;
+    }
+  
+    nav ul {
+      max-height: 0px;
+      background: black;
+      padding-right: 0;
+    }  
+  
+    .showing {
+      max-height: 25em;
+    }
+  
+    nav ul li {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 24px 0px;
+      text-align: center;
+    }
+  
+    .icon-menu {
+      display: block;
+    }
+  }
+  
+  //  end
+
+// content
+.content {    
+    background-color: #f6f6f6;
+}
+
+
+// program section
+.program-section {        
+    padding: 7em 8em 0;
+    font-size: 20px;
+    .desc {
+        .title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .text {        
+            text-align: justify;
+            line-height: 1.75rem;
+            margin-bottom: 2em;
+        }
+
+    }
+    .program-card {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5em;
+        .card {
+            flex: 1;
+            background-color: white;
+            padding: 2rem 3rem;
+            img {
+                width: 200px;
+                display: block;
+                margin: 0 auto;
+            }
+            .card-title {
+                text-align: center;
+                margin: 1.5rem 0 2rem;
+            }
+            .card-desc {
+                ul {
+                    margin-left: 1.5em;
+                    list-style: none;                
+                    li {
+                        text-align: justify;
+                    }
+                }
+                ul li:before {
+                    content: "-";
+                    margin-left: -1rem;
+                    margin-right: .45rem;
+                }
+                p {
+                    margin: 0.5em 0;
+                }
+
+            }
+        }
+    }
+}
+
+
+// partner section
+.arrow-back {    
+    position: absolute;    
+    top: 50%;
+    z-index: 4;
+}
+.arrow-next {    
+    position: absolute;    
+    top: 50%;
+    z-index: 4;
+    right: 0;
+}
+.arrow-next:hover, .arrow-back:hover{
+    cursor: pointer;
+}
+
+
+.partner-section {
+    margin: 2em 0;
+    padding: 2em 0;
+    background-color: white;
+    .partner-title {
+        font-size: 2.5em;
+        font-weight: bold;
+        text-align: center;
+    }
+    .slider-partner-section {
+        width: 80vw;
+        margin: 1.5em auto;
+        .univ-section {
+            margin-top: 3em;
+            .university {
+                width: 90%;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                .univ-pic {
+                    width: 30%;
+                    margin: 1rem 2rem;
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+                }
+                .univ-info {  
+                    .univ-title {
+                        margin-left: .5em;
+                        margin-bottom: .5em;
+                        font-size: 27px;
+                    }        
+                    .faculty {
+                        ul {
+                            list-style: none;                
+                        }
+                        ul li:before {
+                            content: "-";
+                            margin-left: 1rem;
+                            margin-right: .45rem;
+                        }
+                    }          
+                }
+            }
+        }
+    }
+
+}
+
+
+// timeline 
+.timeline-section {
+    padding: 5em 0;    
+    .timeline {          
+        position: relative;    
+        width: 80vw;      
+        margin: 0 auto;  
+        .timeline-title p {        
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;    
+            padding-bottom: 4%;
+            color: #010184;
+        }
+        .timeline-img {        
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);    
+            justify-content: space-between;
+            align-items: flex-end;
+            .img-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;            
+                gap: 10px;
+                margin-top: 1em;
+                img {
+                    width: 12vw;
+                    margin: 0 auto;  
+                }
+                .title {
+                    font-weight: bold;
+                    font-size: 1.1em;
+                    color: #010184;
+                }
+                .date {
+                    font-size: 0.9em;
+                }
+                p {                        
+                    text-align: center;                                
+                    width: 70%;
+                }    
+                .line-step {
+                    position: absolute;
+                    right: -2.5vw;
+                    bottom: 8vw;
+                    width: 5vw;
+                    border-bottom: .25rem solid #ddd;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 978px) {
+    .timeline-img {        
+        grid-template-columns: 1fr;        
+    }  
+    
+}
+
+
+
+// testimonial
+.testimonial-section {
+    margin: 2em 0 0;
+    padding: 2em 0;
+    background-color: white;
+    .testimonial-title {
+        font-size: 2.5em;
+        font-weight: bold;
+        text-align: center;
+    }
+    .slider-testimonial-section {
+        width: 80vw;
+        margin: 1.5em auto;
+        .testimonial-card {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            .card-pic {
+                width: 40%;
+                margin: 1rem 2rem;
+                img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+            .card-desc {  
+                width: 60%;
+                margin: 0 3em;
+                line-height: 1.8em;
+                height: fit-content;
+                .testi {
+                    font-style: italic;
+                }        
+                .identitas {
+                    font-weight: bold;
+                }          
+            }
+        }
+    }
+}
+
+
+// FAQ 
+
+.faq-section {     
+    padding: 5em 0;
+    background-color: white;
+    .faq {        
+        position: relative;
+        width: 80vw;
+        margin: 0 auto;
+        .faq-title p {        
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;    
+            padding-bottom: 4%;
+            color: #010184;
+        }    
+        .question {
+            font-size: 1.1em;
+            ul {
+                margin-left: 1.5em;
+                list-style: none;                
+                li {
+                    text-align: justify;
+                }
+            }
+            ul li:before {
+                content: "-";
+                margin-left: -1rem;
+                margin-right: .45rem;
+            }            
+        }
+
+    }     
+}
+
+// footer
+footer {
+    padding: 2em 1em;
+    color: white;
+    background-color: #1F7FFA;
+    text-align: center;  
+    a {        
+        color: white;
+    }  
+ }
