@@ -20,7 +20,7 @@ const Navbar = () => {
                 <div class="menu">
                     <ul className={showHamburgerMenu ? 'showing' : ''} id="list-menu">
                         <li className="bg-biru">
-                            <a href="#home">
+                            <a href="#home-sea">
                                 <span> Home</span>
                             </a></li>                    
                         <li className="bg-biru">

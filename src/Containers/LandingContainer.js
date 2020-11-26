@@ -48,7 +48,7 @@ const LandingContainer = (props) => {
         prevArrow: <PrevArrow />
       };        
     return (
-        <div>
+        <div id="home-sea">
             <Navbar />
             {
                 dataContent ?                 
