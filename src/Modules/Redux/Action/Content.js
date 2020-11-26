@@ -7,11 +7,10 @@ const faculty = () => {
                 params: {
                     access_token: 'MV8iuoDHgM',                    
                 }
-            } )  
-            console.log(data)
+            } )              
             dispatch({ type: "GET_FACULTY", data: { faculty: data } })
         } catch(error) {
-            console.log(error)
+               dispatch({ type: "GET_ERROR", data: { err: error.message } })       
         }
     }
 }
@@ -27,7 +26,7 @@ const university = () => {
             } )              
             dispatch({ type: "GET_UNIV", data: { univ: data } })
         } catch(error) {
-            console.log(error)
+            dispatch({ type: "GET_ERROR", data: { err: error.message } })       
         }
     }
 }
@@ -42,8 +41,8 @@ const infoContent = () => {
                 }
             } )              
             dispatch({ type: "GET_INFO_CONTENT", data: { infoContent: data.data[0] } })
-        } catch(error) {
-            console.log(error)
+        } catch(error) {                                    
+            dispatch({ type: "GET_ERROR", data: { err: error.message } })       
         }
     }
 }
@@ -59,7 +58,7 @@ const testimonial = () => {
             } )              
             dispatch({ type: "GET_TESTIMONIAL", data: { testi: data } })
         } catch(error) {
-            console.log(error)
+            dispatch({ type: "GET_ERROR", data: { err: error.message } })       
         }
     }
 }

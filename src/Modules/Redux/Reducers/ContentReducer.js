@@ -5,6 +5,8 @@ const defaultState = {
     univ: null,
     infoContent: null,
     testi: null,
+    errorMsg: null,
+    err: null,
 }
 
 const ContentReducer = (state = defaultState, action) => {
@@ -28,6 +30,12 @@ const ContentReducer = (state = defaultState, action) => {
             }
         }
         case "GET_TESTIMONIAL": {
+            return {
+                ...state,
+                ...action.data,                
+            }
+        }
+        case "GET_ERROR": {
             return {
                 ...state,
                 ...action.data,                

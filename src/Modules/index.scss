@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+html, body {
+    scroll-behavior: smooth;
+}
 
 // navbar component
 
@@ -36,64 +39,64 @@ header {
     top: 0;
     width: 100%;
     z-index: 10;
-    background-color: white;
+    background-color: $sea-white;
+    box-shadow: 0px 0px 2px #aaaaaa;
     ul {
       list-style: none;
       background: rgba(0, 0, 0, 0);
-      overflow: hidden;
-      color: #010184;
+      overflow: hidden;      
       padding: 0;
       text-align: right;
       margin: 0;
       transition: 1s ease-in-out;
       li {
           display: inline-block;
-          padding: 30px 20px;
+          padding: 30px 0px;
           a {
               text-decoration: none;
-              color: #010184;
               font-size: 1.1em;
-          }
+              color: $sea-black;
+              padding: 30px 20px;
+          }          
       } 
     }
   }
   
   .icon-menu {
     width: 100%;
-    background: black;
+    background: white;
     text-align: right;
     box-sizing: border-box;
     padding: 15px 24px;
     cursor: pointer;
-    color: #fff;
+    color: $sea-black;
     display: none;
     transition: 1s;
   }
   
   .bg-biru:hover {
-    background-color: #00a3ff;
+    background-color: $sea-blue;    
     cursor: pointer;
-  }
-  
-  @media (max-width: 768px) {
-    nav ul li {
-      padding: 20px 10px;
+    a {
+        color: $sea-white;
     }
   }
   
-  @media (max-width: 500px) {
-    .hero-detail {
-      margin-top: 4em;
-    }
+  
+  @media (max-width: 885px) {    
     .logo {
       position: fixed;
       top: 0;
-      margin-top: 16px;
+      margin-top: 15px;
+      img {
+          width: 200px;
+          max-height: none;
+      }
     }
   
     nav ul {
       max-height: 0px;
-      background: black;
+      background: white;
       padding-right: 0;
     }  
   
@@ -104,31 +107,45 @@ header {
     nav ul li {
       box-sizing: border-box;
       width: 100%;
-      padding: 24px 0px;
+      padding: 20px 0px;
       text-align: center;
+      a {
+        padding: 20px 0px;
+      }
     }
   
     .icon-menu {
       display: block;
     }
   }
+    @media (max-width: 360px) {        
+        .logo {        
+        margin-top: 18px;
+            img {
+                width: 150px;                
+            }
+        }
+    }
   
   //  end
 
 // content
 .content {    
-    background-color: #f6f6f6;
+    background-color: $sea-white-2;
 }
 
 
 // program section
-.program-section {        
-    padding: 7em 8em 0;
+.program-section {     
+    width: 80vw;   
+    margin: 0 auto;
+    padding: 7em 0 3em;
     font-size: 20px;
     .desc {
         .title {
             text-align: center;
             margin-bottom: 2rem;
+            color: $sea-dark-blue;           
         }
         .text {        
             text-align: justify;
@@ -140,11 +157,12 @@ header {
     .program-card {
         display: flex;
         justify-content: space-between;
-        gap: 1.5em;
+        gap: 1.5em;        
         .card {
             flex: 1;
-            background-color: white;
+            background-color: $sea-white;
             padding: 2rem 3rem;
+            box-shadow: 0 0 1.6em rgba(0,0,0,.3);
             img {
                 width: 200px;
                 display: block;
@@ -176,6 +194,27 @@ header {
     }
 }
 
+@media(max-width: 992px) {
+    .program-section {
+        padding-top: 7em;
+        font-size: 18px;
+    }   
+}
+@media(max-width: 992px) {
+    .program-section .program-card {
+        flex-direction: column;
+        .card img {
+            width: 100%;
+        }
+    }   
+}
+@media(max-width: 480px) {
+    .program-section {
+        padding-top: 7em;
+        font-size: 14px;
+    }   
+}
+
 
 // partner section
 .arrow-back {    
@@ -196,12 +235,13 @@ header {
 
 .partner-section {
     margin: 2em 0;
-    padding: 2em 0;
-    background-color: white;
+    padding: 6em 0;
+    background-color: $sea-white;
     .partner-title {
         font-size: 2.5em;
         font-weight: bold;
         text-align: center;
+        color: $sea-dark-blue;           
     }
     .slider-partner-section {
         width: 80vw;
@@ -213,6 +253,7 @@ header {
                 margin: 0 auto;
                 display: flex;
                 align-items: center;
+                padding: 1rem 0;
                 .univ-pic {
                     width: 30%;
                     margin: 1rem 2rem;
@@ -227,13 +268,18 @@ header {
                         margin-bottom: .5em;
                         font-size: 27px;
                     }        
-                    .faculty {
+                    .faculty {  
+                        display: flex;                      
                         ul {
+                            margin-left: 2em;
                             list-style: none;                
+                            li {
+                                line-height: 1.5rem;
+                            }                            
                         }
                         ul li:before {
                             content: "-";
-                            margin-left: 1rem;
+                            margin-left: -1rem;
                             margin-right: .45rem;
                         }
                     }          
@@ -241,13 +287,53 @@ header {
             }
         }
     }
-
 }
 
+@media(max-width: 768px) {
+    .partner-section {
+        .partner-title {
+            font-size: 2.3em;             
+        }
+        .slider-partner-section .univ-section {
+            margin-top: 0;
+            .university {                
+                flex-direction: column;
+                .univ-pic {
+                    width: 90%;
+                }
+                .univ-info {
+                    .univ-title {
+                        font-size: 22px;
+                        text-align: center;
+                    }
+                    .faculty ul li {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }  
+    }   
+}
+
+@media(max-width: 425px) {
+    .partner-section {
+        .partner-title {
+            font-size: 1.7em;            
+        }
+        .slider-partner-section .univ-section .university .univ-info {
+            .univ-title {
+                font-size: 18px;
+            }
+            .faculty ul li {
+                font-size: 12px;
+            }
+        }
+    }    
+}
 
 // timeline 
 .timeline-section {
-    padding: 5em 0;    
+    padding: 6em 0 5em;    
     .timeline {          
         position: relative;    
         width: 80vw;      
@@ -257,7 +343,7 @@ header {
             font-size: 40px;
             font-weight: bold;    
             padding-bottom: 4%;
-            color: #010184;
+            color: $sea-dark-blue;
         }
         .timeline-img {        
             display: grid;
@@ -278,7 +364,7 @@ header {
                 .title {
                     font-weight: bold;
                     font-size: 1.1em;
-                    color: #010184;
+                    color: $sea-dark-blue;
                 }
                 .date {
                     font-size: 0.9em;
@@ -299,11 +385,68 @@ header {
     }
 }
 
-@media(max-width: 978px) {
-    .timeline-img {        
-        grid-template-columns: 1fr;        
-    }  
-    
+@media(max-width: 992px) {
+    .timeline-section .timeline .timeline-img {                
+        .img-card .line-step {            
+            bottom: 10vw;            
+        }      
+    }      
+}
+@media(max-width: 768px) {
+    .timeline-section {
+        padding: 0 0 2em;
+        .timeline {        
+            .timeline-title p {
+                font-size: 2em;
+            }
+            .timeline-img {        
+                font-size: 14px;  
+                .img-card .line-step {            
+                    bottom: 13vw;            
+                } 
+            }     
+        }  
+    }    
+}
+@media(max-width: 660px) {
+    .timeline-section .timeline .timeline-img {        
+        font-size: 12px;        
+        .img-card .title {
+            font-size: 1em;
+        }
+    }      
+}
+
+@media(max-width: 425px) {
+    .timeline-section {
+        padding: 0 0 2em;
+        .timeline .timeline-img {        
+            font-size: 12px;        
+            .img-card {
+                .title {
+                    font-size: 0.8em;
+                }
+                .date {
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }      
+}
+@media(max-width: 375px) {
+    .timeline-section .timeline {
+        .timeline-title p {
+            font-size: 1.5em;
+        }
+        .timeline-img {        
+            font-size: 12px;        
+            .img-card {
+                .line-step {
+                    bottom: 18vw;
+                }            
+            }
+        }
+    }      
 }
 
 
@@ -311,12 +454,13 @@ header {
 // testimonial
 .testimonial-section {
     margin: 2em 0 0;
-    padding: 2em 0;
-    background-color: white;
+    padding: 6em 0;
+    background-color: $sea-white;
     .testimonial-title {
         font-size: 2.5em;
         font-weight: bold;
         text-align: center;
+        color: $sea-dark-blue;           
     }
     .slider-testimonial-section {
         width: 80vw;
@@ -326,6 +470,7 @@ header {
             margin: 0 auto;
             display: flex;
             align-items: center;
+            padding: .5em 1em;
             .card-pic {
                 width: 40%;
                 margin: 1rem 2rem;
@@ -350,12 +495,29 @@ header {
     }
 }
 
+@media(max-width: 768px) {
+    .testimonial-section .slider-testimonial-section .testimonial-card {                
+        flex-direction: column;        
+        .card-pic {
+            width: 80%;
+        }
+        .card-desc {
+            width: 90%;
+        }
+    }      
+}
+@media(max-width: 425px) {
+    .testimonial-section .slider-testimonial-section {
+        width: 85vw;
+    }    
+}
+
 
 // FAQ 
 
 .faq-section {     
     padding: 5em 0;
-    background-color: white;
+    background-color: $sea-white;
     .faq {        
         position: relative;
         width: 80vw;
@@ -365,7 +527,7 @@ header {
             font-size: 40px;
             font-weight: bold;    
             padding-bottom: 4%;
-            color: #010184;
+            color: $sea-dark-blue;
         }    
         .question {
             font-size: 1.1em;
@@ -387,12 +549,27 @@ header {
 }
 
 // footer
-footer {
+footer {    
     padding: 2em 1em;
-    color: white;
-    background-color: #1F7FFA;
-    text-align: center;  
+    color: $sea-white;
+    background-color: $sea-blue;
+    text-align: center;        
     a {        
-        color: white;
+        color: $sea-white;
     }  
  }
+
+//  error
+.error {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        font-size: 2em;
+        font-weight: 700;
+    }    
+}
+
+.full-page {
+    min-height: 100vh;
+}

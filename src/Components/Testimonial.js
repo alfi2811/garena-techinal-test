@@ -6,7 +6,7 @@ const Testimonial = (props) => {
         <div>
             <div className="testimonial-card">
                 <div className="card-pic">
-                    <img src={fotoProfil} />
+                    <img src={fotoProfil} alt="Foto Profil" />
                 </div>
                 <div className="card-desc">
                     <div className="testi">{testiText}</div>

@@ -6,7 +6,7 @@ const Faq = (props) => {
         return {__html: data };
    }
     return (
-        <div className="faq-section">
+        <div className="faq-section" id="faq-sea">
             <div className="faq">
                 <div className="faq-title">
                     <p>FAQ</p>

@@ -3,7 +3,7 @@ import React from 'react'
 const Timeline = (props) => {
     const { regisDate, interviewDate, essaycvDate, announceDate } = props;
     return (
-        <div className="timeline-section">
+        <div className="timeline-section" id="timeline-sea">
             <div className="timeline">
                 <div className="timeline-title">
                     <p>Timeline</p>

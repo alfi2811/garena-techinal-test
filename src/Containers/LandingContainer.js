@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Program, Navbar, PartnerUniv, Timeline, Testimonial, Faq, Footer } from '../Components/Index'
+import { Program, Navbar, PartnerUniv, Timeline, Testimonial, Faq, Footer, ErrorMessage } from '../Components/Index'
 import Slider from "react-slick";
 import arrBack from "../Modules/Images/Slider/ArrowBack.png";
 import arrNext from "../Modules/Images/Slider/ArrowNext.png";
@@ -31,17 +31,13 @@ function NextArrow(props) {
   }
 
 const LandingContainer = (props) => {
-    const { dataFaculty, dataUniv, dataContent, dataTesti } = props;
+    const { dataFaculty, dataUniv, dataContent, dataTesti, dataError } = props;
     useEffect(() => {    
         props.faculty();                               
         props.univ();                               
         props.infoContent();                               
         props.testi();                               
-    }, []);  
-    useEffect(() => {          
-        console.log(dataContent)
-        console.log(dataTesti)
-    }, [dataContent, dataTesti]);  
+    }, []);      
     const settings = {
         dots: true,
         infinite: true,
@@ -50,10 +46,7 @@ const LandingContainer = (props) => {
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
-      };
-    if (dataFaculty) {
-        console.log(dataFaculty.data.length)
-    }
+      };        
     return (
         <div>
             <Navbar />
@@ -61,7 +54,7 @@ const LandingContainer = (props) => {
                 dataContent ?                 
                 <div className="content">               
                     <Program desc={dataContent.program_content} freshmanDesc={dataContent.freshman_program} seniorDesc={dataContent.senior_program} />
-                    <div className="partner-section">
+                    <div className="partner-section" id="partner-sea">
                         <div className="partner-title">Partner Universities</div>
                         {
                             dataUniv && dataFaculty ? 
@@ -69,11 +62,11 @@ const LandingContainer = (props) => {
                                 {   
                                     dataUniv.data.map((data) => {
                                         let dataFakultas = []
-                                        dataFaculty.data.map((dataFa) => {
+                                        dataFaculty.data.forEach((dataFa) => {
                                             if (dataFa.univ_id === data.id) {
                                                 dataFakultas.push(dataFa)
                                             }
-                                        })
+                                        })                                        
                                         return (
                                             <div>
                                                 <PartnerUniv key={data.id} univFakultas={dataFakultas} univName={data.univ_name} univLogo={data.univ_logo} />
@@ -83,11 +76,14 @@ const LandingContainer = (props) => {
                                     )                                                    
                                 }                                                        
                             </Slider>
-                            : ''
+                            : dataError &&                
+                            <div>
+                                <ErrorMessage fullPage={false} errorMsg={dataError} />                 
+                            </div>  
                         }
                     </div>
                     <Timeline regisDate={dataContent.date_regis} interviewDate={dataContent.date_interview} essaycvDate={dataContent.date_esay_cvscreen} announceDate={dataContent.date_announce} />
-                    <div className="testimonial-section">
+                    <div className="testimonial-section" id="testi-sea">
                         <div className="testimonial-title">Testimonial</div>
                         {
                             dataTesti ?
@@ -100,13 +96,19 @@ const LandingContainer = (props) => {
                                         )
                                     }                                                                        
                                 </Slider>
-                                : ''
+                                : dataError &&                
+                                <div>
+                                    <ErrorMessage fullPage={false} errorMsg={dataError} />                 
+                                </div>  
                         }                   
 
                     </div>
                     <Faq dataFaq={dataContent.faq_content} />
                 </div>            
-                : ''
+                : dataError &&                
+                <div>
+                    <ErrorMessage fullPage={true} errorMsg={dataError} />                 
+                </div>                
            }    
            <Footer />        
         </div>
@@ -119,6 +121,7 @@ const mapStateToProps = state => {
         dataUniv: state.content.univ,
         dataContent: state.content.infoContent,
         dataTesti: state.content.testi,
+        dataError: state.content.err
     }
 }
 

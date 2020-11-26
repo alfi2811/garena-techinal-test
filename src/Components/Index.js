@@ -5,6 +5,7 @@ import Timeline from './Timeline'
 import Testimonial from './Testimonial'
 import Faq from './Faq'
 import Footer from './Footer'
+import ErrorMessage from './ErrorMessage'
 
 export {
     Navbar,
@@ -13,5 +14,6 @@ export {
     Timeline,
     Testimonial,
     Faq,
-    Footer
+    Footer,
+    ErrorMessage
 }
