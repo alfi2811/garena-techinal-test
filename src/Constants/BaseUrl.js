@@ -1,3 +1,3 @@
 import axios from 'axios'
 
-export default axios.create({ baseURL: 'https://form-v2.support.garena.co.id/_/items' })
+export default axios.create({ baseURL: process.env.REACT_APP_API_URL })
