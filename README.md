@@ -1,6 +1,6 @@
 # Sea Scholarship
 
-Link [https://garena-technical-test.netlify.app/](Preview)
+Link [Preview](https://garena-technical-test.netlify.app/).
 
 ## About
 
