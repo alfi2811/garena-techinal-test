@@ -1,3 +1,11 @@
+# Sea Scholarship
+
+Link [https://garena-technical-test.netlify.app/](Preview)
+
+## About
+
+To Apply Frontend Position in Garena Indonesia
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
